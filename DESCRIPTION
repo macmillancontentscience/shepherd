@@ -1,0 +1,16 @@
+Package: shepherd
+Title: Straightforward AWS Lambda Deployment
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jon",
+           family = "Harmon",
+           role = c("aut", "cre"),
+           email = "jonthegeek@gmail.com",
+           comment = c(ORCID = "0000-0003-4781-4346"))
+Description: Deploy a script to an AWS Lambda and set up ways to invoke that 
+    script.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
