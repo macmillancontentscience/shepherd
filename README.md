@@ -38,7 +38,11 @@ This function creates an AWS Lambda instance with the necessary API to
 invoke your function.
 
 ``` r
-deploy_script_api(path = "my_script.R")
+deploy_script_http(
+  script = "my_script.R",
+  lambda_function_name = "my_lambda",
+  entry_point = "main_function"
+)
 ```
 
 ## Code of Conduct
