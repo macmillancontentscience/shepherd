@@ -1,0 +1,76 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(shepherd)
+```
+
+## Credentials
+
+To use this package, you will need to provide AWS credentials.
+The easiest way to do so is to set an `AWS_ACCESS_KEY_ID` and an `AWS_SECRET_ACCESS_KEY` in your .Renviron file.
+
+```
+AWS_ACCESS_KEY_ID=YOURKEYID
+AWS_SECRET_ACCESS_KEY=YOURSECRETACCESSKEY
+```
+
+See the `aws.signature` and `aws.iam` packages for additional credential options.
+
+## Your Script
+
+Your script to deploy should be a single file, with one or more function definitions.
+The functions can only use base R (hopefully this will be updated soon).
+
+```{r sample-script}
+main_function <- function(a, b, c) {
+  if (!missing(a)) {
+    return(a_function(a))
+  } else if (!missing(b)) {
+    return(b)
+  } else if (!missing(c)) {
+    return(c)
+  } else {
+    return("nothing")
+  }
+}
+
+a_function <- function(a) {
+  if (a == "this") {
+    return("that")
+  } else {
+    return("another")
+  }
+}
+```
+
+One function should serve as the entry point into your script.
+In the example, `main_function` is meant to server as the entry point.
+This function will be called when the Lambda is invoked, with arguments provided by the trigger.
+
+## Creating the Lambda
+
+Call `deploy_script_http` to deploy your script.
+
+```{r deploy, eval = FALSE}
+deployed_script <- deploy_script_http(
+  script = "my_script.R",
+  lambda_function_name = "my_lambda",
+  entry_point = "main_function"
+)
+```
+
+If the call succeeds, `deployed_script` will contain the URL to call to invoke your function.

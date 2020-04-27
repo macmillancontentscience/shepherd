@@ -19,4 +19,7 @@ BugReports: https://github.com/jonthegeek/shepherd/issues
 Imports: 
     aws.lambda (>= 0.2.0)
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
