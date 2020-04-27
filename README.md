@@ -33,7 +33,7 @@ devtools::install_github("jonthegeek/shepherd")
 
 ## Example
 
-NONE OF THIS EXISTS YET. The workhorse function is `deploy_script_api`.
+NONE OF THIS EXISTS YET. The workhorse function is `deploy_script_http`.
 This function creates an AWS Lambda instance with the necessary API to
 invoke your function.
 
