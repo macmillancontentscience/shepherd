@@ -31,6 +31,12 @@ You can install the development version from [GitHub](https://github.com/) with:
 remotes::install_github("macmillancontentscience/shepherd")
 ```
 
+## Examples
+
+Coming soon. 
+
+The first thing we plan to implement is a function to upload an existing Dockerfile to an S3 bucket, build the image using CodeBuild and deploy that image on ECR, and then create a Lambda function from that image.
+
 ## Code of Conduct
   
 Please note that the shepherd project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). 

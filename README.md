@@ -10,44 +10,30 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of shepherd is to make it as easy as possible to deploy an R
-script as an AWS Lambda endpoint. The first version of this package will
-*only* support base R. We hope to add support for further packages soon
-afterward.
+script as an AWS Lambda function, and otherwise manage your Lambda
+functions using R.
 
 ## Installation
 
-You can install the released version of shepherd from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
-# No you can't.
-# install.packages("shepherd")
+# install.packages("remotes")
+remotes::install_github("macmillancontentscience/shepherd")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+## Examples
 
-``` r
-# install.packages("devtools")
-devtools::install_github("jonthegeek/shepherd")
-```
+Coming soon.
 
-## Example
-
-NONE OF THIS EXISTS YET. The workhorse function is `deploy_script_http`.
-This function creates an AWS Lambda instance with the necessary API to
-invoke your function.
-
-``` r
-deploy_script_http(
-  script = "my_script.R",
-  lambda_function_name = "my_lambda",
-  entry_point = "main_function"
-)
-```
+The first thing we plan to implement is a function to upload an existing
+Dockerfile to an S3 bucket, build the image using CodeBuild and deploy
+that image on ECR, and then create a Lambda function from that image.
 
 ## Code of Conduct
 
 Please note that the shepherd project is released with a [Contributor
 Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
