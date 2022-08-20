@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "0000-0003-4781-4346"))
 Description: Deploy a script to an AWS Lambda and set up ways to invoke that 
     script.
-License: MIT + file LICENSE
+License: Apache License (>= 2)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -17,7 +17,8 @@ RoxygenNote: 7.1.0
 URL: https://github.com/jonthegeek/shepherd
 BugReports: https://github.com/jonthegeek/shepherd/issues
 Imports: 
-    aws.lambda (>= 0.2.0)
+    paws.compute,
+    paws.developer.tools
 Suggests: 
     testthat,
     knitr,
